@@ -19,13 +19,13 @@ const menuitems = [
   //   title: "Pricing",
   //   path: "/pricing",
   // },
+  // {
+  //   title: "Contact",
+  //   path: "/contact",
+  // },
   {
     title: "About",
     path: "/about",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
   },
   {
     title: "FAQ",
@@ -39,11 +39,12 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <img src="https://raw.githubusercontent.com/sanggar-id/androidsprint.id/main/logo.png" width="36px">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">android</span><span
-            class="text-slate-500">sprint</span
-          >
+        <a href="/">
+          <img src="https://raw.githubusercontent.com/sanggar-id/androidsprint.id/main/logo.png" width="36px">
+        </a>
+        <a href="/" class="text-lg">
+          <span class="font-bold text-slate-800">android</span>
+          <span class="text-slate-500">sprint</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
