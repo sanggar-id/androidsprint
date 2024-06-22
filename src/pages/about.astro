@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import Cta from "@components/cta.astro";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -45,10 +46,12 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
         Agenda dan Durasi
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        Study group ini diadakan secara daring selama 4 minggu. Tiap minggunya, setidaknya ada 1x pertemuan di akhir pekan dengan durasi 4~5 jam. <wbr/>
+        Study group ini diadakan secara daring selama 4 minggu*. Tiap minggunya, setidaknya ada 1x pertemuan di akhir pekan dengan durasi 4~5 jam. <wbr/>
         Bisa jadi ada kelas tambahan untuk review dari pertemuan sebelumnya, tapi pertemuan tersebut bersifat <i>optional</i> yang mana bisa saja tidak dibutuhkan.
         <br/><br/>
-        Silahkan klik tautan <u><a href="#">berikut</a></u> untuk daftar agenda lebih lanjut.
+        Silahkan klik tautan <u><a href="/syllabus">berikut</a></u> untuk daftar agenda lebih lanjut.
+        <br/>
+        <i>*) untuk paid session, akan ada kelas tambahan.</i>
       </p>
     </div>
 
@@ -57,7 +60,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
         Objektif
       </h2>
       <ul>
-        <li class="text-lg leading-relaxed text-slate-500">- Belajar cara membuat aplikasi menggunakan <i>kotlin multiplatform</i> dari fundamental hingga mahir.</li>
+        <li class="text-lg leading-relaxed text-slate-500">- Belajar membuat aplikasi menggunakan <i>kotlin multiplatform</i> dari fundamental hingga mahir.</li>
         <li class="text-lg leading-relaxed text-slate-500">- Belajar mengelola <u>source-sets</u> yang berbeda untuk tiap platform yang sudah didukung oleh KMP.</li>
         <li class="text-lg leading-relaxed text-slate-500">- Belajar dengan pendekatan <u>best practices</u> dalam menggunakan <i>kotlin multiplatform framework</i>.</li>
       </ul>
@@ -74,13 +77,13 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       </p>
     </div>
 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+    <!-- <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
         Tim
       </h2>
-    </div>
+    </div> -->
 
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-12">
+    <!-- <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-12">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
           <div class="group">
@@ -104,6 +107,8 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
           </div>
         ))
       }
-    </div>
+    </div> -->
   </Container>
+
+  <Cta />
 </Layout>

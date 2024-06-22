@@ -1,0 +1,122 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const syllabus = [
+  {
+    section: "Pengantar",
+    title: "KMP Trends & Overview",
+    description: "Pengenalan mengenai ekosistem KMP dan update terkini.",
+  },
+  {
+    section: "",
+    title: "Project Setup and Sourceset Introduction",
+    description: "Inisialisasi project dan pengatar source-set pada struktur KMP.",
+  },
+  {
+    section: "",
+    title: "Mini Distributed Binaries",
+    description: "Membuat sampel module yang bisa didistribusi ditiap dukungan platform pada KMP.",
+  },
+  {
+    section: "Pembahasan",
+    title: "Navigation Setup",
+    description: "Menggunakan Jetpack Navigation untuk melakukan navigasi antar screen.",
+  },
+  {
+    section: "",
+    title: "Main Feature Kick-offs",
+    description: "Membuat aplikasi sampel dengan studi kasus, menggunakan KMP dan Compose Multiplatform.",
+  },
+  {
+    section: "Lanjutan",
+    title: "Remote Data Support",
+    description: "Menggunakan ktorfit untuk melakukan transaksi data dari network (baik mengirim maupun menerima request).",
+    is_exclusive: true
+  },
+  {
+    section: "",
+    title: "Modularization and Navigation II",
+    description: "Preparasi struktur modul and penerapan lebih lanjut untuk screen navigation support.",
+    is_exclusive: true
+  },
+  {
+    section: "Tambahan",
+    title: "Architecture Pattern Implementation",
+    description: "Pengenalan salah satu architecture pattern approach yang direkomendasikan pada penerapan Compose Multiplatform.",
+    is_exclusive: true
+  },
+  {
+    section: "",
+    title: "Data Management Support",
+    description: "Menambahkan dukungan kompleks untuk melakukan save-state dan offline-mode dengan metode caching menggunakan DataStore dan Room.",
+    is_exclusive: true
+  },
+  {
+    section: "",
+    title: "UI & Unit Testing",
+    description: "Melakukan uji coba terhadap end-to-end proses pada main features.",
+    is_exclusive: true
+  },
+  {
+    section: "Karir",
+    title: "Crack the Android interview process",
+    description: "Discover cara tepat untuk mempersiapkan sebelum android user interview, baik DSA maupun android technical questions.",
+    is_exclusive: true
+  },
+]
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Syllabus</Fragment>
+      <Fragment slot="desc">Topik yang akan dipelajari.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        {
+          syllabus.map((item) => (
+            <li class="mb-10 ms-4">
+                <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  {item.section}
+                  {(item.is_exclusive && item.section != '') ? <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">Berbayar</span> : <div></div>}
+                </time>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">{item.description}</p>
+            </li>
+          ))
+        }
+        <!-- <li class="mb-10 ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">March 2022</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Marketing UI design in Figma</h3>
+            <p class="text-lg font-normal text-gray-500 dark:text-gray-400">All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p>
+            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+          </svg></a>
+        </li>
+        <li class="ms-4">
+            <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">April 2022</time>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">E-Commerce UI code in Tailwind CSS</h3>
+            <p class="text-lg font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
+        </li> -->
+      </ol>
+    </div>
+    
+    <!-- <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        1. Pendahuluan
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        <b>androidsprint</b> merupakan program kelompok belajar privat untuk belajar membangun aplikasi mobile (<i>maupun non-mobile</i>) dengan menggunakan KMP secara komprehensif.
+        <wbr/>
+        Program ini didesain untuk-mu yang ingin belajar <i>Kotlin Multiplatform</i> dari dasar hingga mahir. 
+      </p>
+    </div> -->
+  </Container>
+</Layout>
